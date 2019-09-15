@@ -19,16 +19,16 @@
   </head>
   <body>
     <header>
-      <article class="switch">
-        <input type="checkbox" id="find" />
-        <label for="find">
-          <span class="button_bg"></span>
-          <span class="text_left">找雇主</span>
-          <span class="text_right">找护工</span>
-        </label>
-      </article>
       <button type="button" class="map"></button>
     </header>
+    <input type="checkbox" id="find" onclick="window.location.href='#top'" />
+    <!--点击时页面返回到顶部-->
+    <label for="find">
+      <span class="button_bg"></span>
+      <span class="text_left">找雇主</span>
+      <span class="text_right">找护工</span>
+    </label>
+    <!--为能关联到主要内容的页面切换，需其父元素为同一个-->
 
     <nav>
       <div class="sel_left">
@@ -42,23 +42,23 @@
       </div>
 
       <div class="sel_middle">
-          <select>
-            <option>食宿</option>
-            <option>包食</option>
-            <option>包住</option>
-            <option>包食包住</option>
-          </select>
-        </div>
+        <select>
+          <option>食宿</option>
+          <option>包食</option>
+          <option>包住</option>
+          <option>包食包住</option>
+        </select>
+      </div>
 
-        <div class="sel_right">
-            <select>
-              <option>病人情况</option>
-              <option>能自理</option>
-              <option>不能自理</option>
-              <option>半失能</option>
-              <option>手术后</option>
-            </select>
-          </div>
+      <div class="sel_right">
+        <select>
+          <option>病人情况</option>
+          <option>能自理</option>
+          <option>不能自理</option>
+          <option>半失能</option>
+          <option>手术后</option>
+        </select>
+      </div>
     </nav>
     <!--导航栏列表-->
 
@@ -164,7 +164,10 @@
 
       <article class="find_right">
         <!--找护工页面-->
-        <section class="list_1" onclick="javascrtpt:window.location.href='https://lespric.github.io/personal-page/'">
+        <section
+          class="list_1"
+          onclick="javascrtpt:window.location.href='https://lespric.github.io/personal-page/'">
+          <!--点击打开到个人页面-->
           <div class="top">
             <div class="icon"></div>
             <span>服务日期</span>
