@@ -53,7 +53,7 @@
 } /* 引用设计字体 */
 
 html {
-  overflow: hidden;
+  overflow-x: hidden;
 }
 body {
   margin: 0;
@@ -169,34 +169,71 @@ header .switch input:checked + main .list_1 {
 }
 
 nav {
-  position: fixed;
-  top: 4.4em;
-  display: flex;
-  justify-content: space-between;
-  z-index: 100;
+    position: fixed;
+    top: 4.4em;
+    z-index: 100;
 
-  width: 100%;
-  height: 4em;
-  
-  background-color: #FFF;
-  border-bottom: .1em solid #E1E5E7;
+    width: 100%;
+    height: 4em;
+    
+    background-color: #FFF;
+    border-bottom: .1em solid #E1E5E7;
 } /* 定义导航栏的属性 */
-select{
-  -webkit-appearance: none;
+ul,
+li {
   outline: none;
-  border: none;
-  background: none;
+  list-style: none;
+  color: #999999;
 } /* 去除选择框的默认样式，以及ios的默认样式 */
 
-div[class^="sel"] {
+nav > ul {
+  display: flex;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 
+  width: 100%;
+  height: 100%;
+} /* 定义选择框的布局 */
+li[class^="sel"] {
+    text-align: center;
+    line-height: 3em;
+
+    width: 33.3%;
+    height: 100%;
+    
+    font-size: 1.4em;
+    border-right: .07em solid #E1E5E7;
+}
+li[class$="right"] {
+  border: none;
+}
+li[class^="sel"]:nth-child(2) {
+  width: 33.4%;
+} /* 下拉列表未完成 */
+/*
+li[class^="sel"] .arrow {
+  margin-right: .6em;
   
+  width: 0;
+  height: 0;
+
+  border-width: .4em;
+  border-style: solid;
+  border-color:#AFBAC0 transparent transparent transparent;
+} */
+
+
+
+
+li[class^="sel"] li {
+  display: none;
 }
 
 
 main {
   margin-top: 8.4em;
-  margin-bottom: 5em;
+  margin-bottom: 8em;
   display: flex;
 
   width: 200%;
