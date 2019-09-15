@@ -222,10 +222,6 @@ li[class^="sel"] .arrow {
   border-style: solid;
   border-color:#AFBAC0 transparent transparent transparent;
 } */
-
-
-
-
 li[class^="sel"] li {
   display: none;
 }
