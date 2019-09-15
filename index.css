@@ -52,6 +52,9 @@
     url("../home/fonts/HiraginoSansGBW3/HiraginoSansGBW3.svg") format("svg");
 } /* 引用设计字体 */
 
+html {
+  overflow: hidden;
+}
 body {
   margin: 0;
   padding: 0;
@@ -85,11 +88,6 @@ header {
   background-color: #5fc0cd;
 } /* 定义标题栏的位置 */
 
-.switch {
-  margin: auto auto;
-  vertical-align: bottom;
-  height: 3.4em;
-}
 input[type="checkbox"] {
   display: none;
 } /* 隐藏复选框 */
@@ -296,10 +294,6 @@ main {
 #find:checked ~ main {
   transform: translateX(0);
 } /* ~号为之后所有同名标签起作用，定义切换开关对页面滑动作用的动画 */
-main {
--webkit-overflow-scrolling: touch;
-overflow: auto; 
-} /* overflow为auto则是如有被修剪，会以滚动轴显示，而overflow-scrolling为touch，则是滚动轴显示触屏状态 */
 
 footer {
   position: fixed;
