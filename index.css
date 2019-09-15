@@ -1,0 +1,350 @@
+@media all and (orientation: portrait) {
+  @media (min-width: 980px) {
+    html {
+      font-size: 2rem;
+    }
+    body {
+      min-width: 960px;
+    }
+  } /* 竖屏电脑 */
+  @media (min-width: 768px) and (max-width: 979px) {
+    html {
+      font-size: 1.5rem;
+    }
+  } /* 竖屏平板 */
+  @media (max-width: 767px) {
+    html {
+      font-size: 1rem;
+    }
+  } /* 竖屏手机 */
+}
+
+@media all and (orientation: landscape) {
+  @media (min-width: 1024px) {
+    html {
+      font-size: 1rem;
+    }
+    main,
+    footer,
+    aside,
+    aside form {
+      max-width: 960px;
+      margin: 0 auto;
+    } /* 实现横屏网页时，两边留白，中间显示内容的布局 */
+  } /*横屏网页 */
+  @media (max-width: 1023px) {
+    html {
+      font-size: 1rem;
+    }
+  }
+} /* 横屏手机 */
+@font-face {
+  font-family: "STHeitiSC-Light";
+  src: url("../home/fonts/STHeitiSC-Light/stheitisc.otf") format("opentype"),
+    url("../home/fonts/STHeitiSC-Light/stheitisc.woff") format("woff"),
+    url("../home/fonts/STHeitiSC-Light/stheitisc.ttf") format("truetype"),
+    url("../home/fonts/STHeitiSC-Light/stheitisc.eot")
+      format("embedded-opentype"),
+    url("../home/fonts/STHeitiSC-Light/stheitisc.svg") format("svg");
+
+  font-family: "HiraginoSansGBW3";
+  src: url("../home/fonts/HiraginoSansGBW3/HiraginoSansGBW3.otf")
+      format("opentype"),
+    url("../home/fonts/HiraginoSansGBW3/HiraginoSansGBW3.woff2") format("woff2"),
+    url("../home/fonts/HiraginoSansGBW3/HiraginoSansGBW3.woff") format("woff"),
+    url("../home/fonts/HiraginoSansGBW3/HiraginoSansGBW3.ttf")
+      format("truetype"),
+    url("../home/fonts/HiraginoSansGBW3/HiraginoSansGBW3.eot")
+      format("embedded-opentype"),
+    url("../home/fonts/HiraginoSansGBW3/HiraginoSansGBW3.svg") format("svg");
+} /* 引用设计字体 */
+
+body {
+  margin: 0;
+  padding: 0;
+
+  font-size: 0.625rem;
+  font-family: "STHeitiSC-Light", sans-serif;
+
+  background-color: #f6f6f6;
+}
+
+button,
+input,
+input:focus {
+  background: none;
+  outline: none;
+  border: none;
+
+  font-size: 0.625rem;
+} /* 去除button默认样式 */
+ul li {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+} /* 去除列表的默认样式 */
+
+header {
+  position: fixed;
+  top: 0;
+  display: flex;
+
+  width: 100%;
+  height: 4.4em;
+
+  background-color: #5fc0cd;
+} /* 定义标题栏的位置 */
+
+.switch {
+  margin: auto auto;
+  vertical-align: bottom;
+  height: 3.4em;
+}
+.switch input[type="checkbox"] {
+  display: none;
+} /* 隐藏复选框 */
+label {
+  display: inline-block;
+  position: relative;
+
+  width: 8em;
+  height: 2em;
+  font-size: 1.7em;
+
+  border-radius: 0.3em;
+  background-color: #55a8b3;
+  cursor: pointer;
+} /* 定义交互样式，即点击label的范围，即会使对应的input生效 */
+.button_bg {
+  position: absolute;
+  right: 0;
+
+  width: 4em;
+  height: 2em;
+
+  border-radius: 0.3em;
+  background-color: #fff;
+} /* 定义滑块样式 */
+.text_left,
+.text_right {
+  position: absolute;
+  line-height: 2em;
+  text-align: center;
+
+  width: 4em;
+  height: 2em;
+} /* 声明变为内联块状元素后，再声明宽高，即可实现居中 */
+.text_left {
+  color: #fff;
+}
+.text_right {
+  color: #5fc0cd;
+  left: 4em;
+} /* 定义文本样式 */
+
+.button_bg,
+.text_left,
+.text_right {
+  -webkit-transition: right 0.3s, color 0.3s;
+  transition: right 0.3s, color 0.3s;
+} /* 动画过渡效果 */
+#find:checked + label .button_bg {
+  right: 4em;
+} /* 当复选框被选中时，+ 号后面的有相同父元素的同级元素的样式生效，必须先写同级元素再写子元素 */
+#find:checked + label .text_left {
+  color: #5fc0cd;
+} /* 复选框被选中时，左边文字变色 */
+#find:checked + label .text_right {
+  color: #fff;
+} /* 复选框被选中时，右边文字变色 */
+
+.map {
+  position: absolute;
+  padding: 0;
+  right: 0;
+  
+  width: 5.1em;
+  height: 4.4em;
+
+  background: url(../home/img/map@2x.png) no-repeat center;
+  background-size: 2.1em 2.2em;
+} /* 定义地图按钮的样式 */
+.map:active {
+  background-color:  #55a8b3;
+} /* 定义地图按钮的点击状态 */
+
+header .switch input:checked + main .list_1 {
+  background-color: #333;
+}
+
+nav {
+  position: fixed;
+  top: 4.4em;
+  display: flex;
+  justify-content: space-between;
+
+  width: 100%;
+  height: 4em;
+  
+  background-color: #FFF;
+  border-bottom: .1em solid #E1E5E7;
+}
+div[class^="sel"] {
+
+  
+}
+
+select{
+  -webkit-appearance: none;
+  outline: none;
+  border: none;
+}
+
+main {
+  margin-top: 8.4em;
+  margin-bottom: 5em;
+  display: flex;
+
+  width: 200%;
+  background-color: #FFF;
+} /* 定义主体内容的位置和尺寸 */
+.find_left,
+.find_right {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+} /* 定义“找雇主”页面和“找护工”页面的宽度 */
+
+main section[class^="list"] {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5em;
+  box-sizing: border-box;
+
+  width: 100%;
+  height: 9.1em;
+
+  border-bottom: .1em solid #E1E5E7;
+} /* 定义每个列表行的高度以及各小行的分布等属性 */
+main section[class^="list"]:active {
+  background-color: #e6e6e6;
+} /* 定义列表的点击状态 */
+
+.top,
+.middle,
+.bottom {
+   display: flex;
+   align-items: center;
+} /* 定义行里面的各小行的居中对齐 */
+
+.top span,
+.bottom span {
+  margin-left: .75em;
+
+  font-size: 1.2em;
+  color: #999999;
+} /* 定义上方和下方的小行的分布和字体 */
+main .icon {
+  width: 1.2em;
+  height: 1.2em;
+}
+.top .icon {
+  background: url(../home/img/calendar@2x.png) no-repeat;
+  background-size: cover;
+}
+.bottom .icon {
+  background: url(../home/img/location@2x.png) no-repeat center;
+  background-size: 1em 1.2em;
+} /* 定义上方和下方的小行的图标 */
+
+.middle {
+  justify-content: space-between;
+}
+.middle span:first-child {
+  margin-left: 1.5em;
+
+  font-size: 1.4em;
+  color: #333333;
+}
+.middle span:nth-child(2) {
+  margin-left: auto;
+  margin-right: .75em;
+
+  font-size: 1.6em;
+  font-family: "HiraginoSansGBW3", sans-serif;
+  color: #E63B0E;
+} /* 定义中间小行的分布和字体 */
+.arrow {
+  width: 1.2em;
+  height: 1.2em;
+  
+  border-top: .15em solid #5FC0CD;
+  border-right: .15em solid #5FC0CD;
+
+  transform: rotate(45deg);
+} /* 定义箭头符号样式 */
+.top span,
+.middle span,
+.bottom span {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap; 
+} /* 定义隐藏文本的省略号样式 */
+
+footer {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20%;
+  box-sizing: border-box;
+
+  width: 100%;
+  height: 5.1em;
+
+  background-color: #F8FAFB;
+  border-top: .1em solid #DBE5E7;
+} /* 定义标签栏 */
+.home,
+.user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} /* 定义标签栏各标签的居中对齐 */
+
+footer .icon {
+  margin-top: .4em;
+
+  width: 2.4em;
+  height: 2.4em;
+}
+.home .icon {
+  background: url(../home/img/home@2x.png) no-repeat center;
+  background-size: 2.3em 2em;
+}
+.user .icon {
+  background: url(../home/img/user@2x.png) no-repeat center;
+  background-size: 2.1em 2.1em;
+} 
+.rudder {
+  margin: .1em 0;
+
+  width: 4.7em;
+  height: 4.7em;
+
+  background: url(../home/img/write@2x.png) no-repeat;
+  background-size: cover;
+} /* 定义各标签的图标 */
+
+.home span,
+.user span {
+  margin: .6em 0;
+
+  font-size: 1em;
+  line-height: .8em;
+  color: #999999;
+}
+.home span {
+  color: #5FC0CD;
+} /* 定义各标签的字体样式 */
