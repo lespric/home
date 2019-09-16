@@ -52,7 +52,9 @@
     url("../home/fonts/HiraginoSansGBW3/HiraginoSansGBW3.svg") format("svg");
 } /* 引用设计字体 */
 
-html {
+html,
+body {
+  height: 100%;
   overflow-x: hidden;
 }
 body {
