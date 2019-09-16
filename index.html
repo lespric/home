@@ -15,11 +15,14 @@
       content="black-translucent"
     />
     <meta name="format-detection" content="telephone=no,email=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+
     <link rel="stylesheet" href="index.css" />
-    <link rel="stylesheet" href="/src/iosSelect.css" />
+    <link rel="stylesheet" href="../home/src/iosSelect.css" />
   </head>
+
   <body>
-    <header>
+    <header class="switch">
       <button type="button" class="map"></button>
     </header>
     <input type="checkbox" id="find" onclick="window.location.href='#top'" />
@@ -31,9 +34,11 @@
     </label>
     <!--为能关联到主要内容的页面切换，需其父元素为同一个-->
 
+    <!--
     <nav>
       <ul>
-        <li class="sel_left">所在地
+        <li class="sel_left">
+          所在地
           <ul>
             <li>北京</li>
             <li>上海</li>
@@ -42,7 +47,8 @@
           </ul>
         </li>
 
-        <li class="sel_middle">食宿
+        <li class="sel_middle">
+          食宿
           <ul>
             <li>包食</li>
             <li>包住</li>
@@ -50,7 +56,8 @@
           </ul>
         </li>
 
-        <li class="sel_right">病人情况
+        <li class="sel_right">
+          病人情况
           <ul>
             <li>能自理</li>
             <li>不能自理</li>
@@ -60,7 +67,41 @@
         </li>
       </ul>
     </nav>
-    <!--导航栏列表-->
+    导航栏简单的下拉列表-->
+
+    <nav>
+      <ul>
+        <li class="sel_left" id="address">
+          <input
+            type="hideen"
+            name="address_id"
+            id="addressId"
+            placeholder="所在地"
+            value=""
+          />
+        </li>
+
+        <li class="sel_middle" id="term">
+          <input
+            type="hideen"
+            name="term_id"
+            id="termId"
+            placeholder="食宿"
+            value=""
+          />
+        </li>
+
+        <li class="sel_right" id="illness">
+          <input
+            type="hideen"
+            name="illness_id"
+            id="illnessId"
+            placeholder="病人情况"
+            value=""
+          />
+        </li>
+      </ul>
+    </nav>
 
     <main>
       <article class="find_left">
@@ -280,6 +321,42 @@
       </button>
     </footer>
 
-    <script src="/src/iosSelect.js" async defer></script>
+    <script src="index.js"></script>
+    <script src="../home/src/iosSelect.js" async defer></script>
+
+    <script type="text/javascript">
+      var addressDom = document.querySelector("#address"); // 绑定一个触发元素
+      var addressIdDom = document.querySelector("#addressId"); // 绑定一个存储结果的元素
+      addressDom.addEventListener("click", function() {
+        // 添加监听事件
+        var addressId = addressDom.dataset["id"]; // 获取元素的data-id属性值
+        var addressName = addressDom.dataset["value"]; // 获取元素的data-value属性值
+
+        var addressSelect = new IosSelect(
+          1, // 第一个参数为级联层级，演示为1
+          [data], // index.js里的演示数据
+          {
+            container: ".container", // 容器class
+            title: "", // 标题
+            itemHeight: 40, // 每个元素的高度
+            itemShowCount: 3, // 每一列显示元素个数，超出将隐藏
+            oneLevelId: addressId, // 第一级默认值
+            callback: function(selectOneObj) {
+              // 用户确认选择后的回调函数
+              addressIdDom.value = selectOneObj.id;
+              addressDom.innerHTML = selectOneObj.value;
+              addressDom.dataset["id"] = selectOneObj.id;
+              addressDom.dataset["value"] = selectOneObj.value;
+            },
+            fallback: function() {
+              console.log(1);
+            },
+            maskCallback: function() {
+              console.log(2);
+            }
+          }
+        );
+      });
+    </script>
   </body>
 </html>
