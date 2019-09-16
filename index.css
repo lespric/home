@@ -237,11 +237,10 @@ li[class^="sel"] li {
   background-color: #fff;
   border-bottom: 0.07em solid #e1e5e7;
 } /* 定义下拉列表选项的样式 */
-
 li[class^="sel"] li:active,
 li[class^="sel"]:active {
   background-color: #e6e6e6;
-} /* 定义选项的点击状态 */
+} /* 定义选项的点击状态，难以实现选择框的动效，不如select标签 */
 li[class^="sel"]:hover > ul {
   display: block;
 } /* 定义导航栏点击出现选项列表的触发动作 */
