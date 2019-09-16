@@ -232,11 +232,11 @@ li[class^="sel"]:before {
 input[name$="id"] {
   margin: 0 auto;
   
-  width: 50%;
+  width: 80%;
   height: 100%;
 
   font-size: 1em;
-  
+
 } /* 定义导航栏选择框按钮的布局和尺寸 */
 input[name$="id"]::-webkit-input-placeholder {
   text-align: center;
