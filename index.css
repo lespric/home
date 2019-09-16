@@ -94,10 +94,10 @@ input[type="checkbox"] {
 label {
   display: inline-block;
   position: fixed;
-  top: .3em;
+  top: 0.3em;
   left: calc(50% - 4em);
   z-index: 1000;
-  
+
   width: 8em;
   height: 2em;
   font-size: 1.7em;
@@ -153,7 +153,7 @@ label {
   position: absolute;
   padding: 0;
   right: 0;
-  
+
   width: 5.1em;
   height: 4.4em;
 
@@ -161,7 +161,7 @@ label {
   background-size: 2.1em 2.2em;
 } /* 定义地图按钮的样式 */
 .map:active {
-  background-color:  #55a8b3;
+  background-color: #55a8b3;
 } /* 定义地图按钮的点击状态 */
 
 header .switch input:checked + main .list_1 {
@@ -169,22 +169,22 @@ header .switch input:checked + main .list_1 {
 }
 
 nav {
-    position: fixed;
-    top: 4.4em;
-    z-index: 100;
+  position: fixed;
+  top: 4.4em;
+  z-index: 100;
 
-    width: 100%;
-    height: 4em;
-    
-    background-color: #FFF;
-    border-bottom: .1em solid #E1E5E7;
+  width: 100%;
+  height: 4em;
+
+  background-color: #fff;
+  border-bottom: 0.1em solid #e1e5e7;
 } /* 定义导航栏的属性 */
 ul,
 li {
   outline: none;
   list-style: none;
   color: #999999;
-} /* 去除选择框的默认样式，以及ios的默认样式 */
+} /* 去除下拉列表的默认样式，以及ios的默认样式 */
 
 nav > ul {
   display: flex;
@@ -194,38 +194,57 @@ nav > ul {
 
   width: 100%;
   height: 100%;
-} /* 定义选择框的布局 */
+} /* 定义导航栏的布局 */
 li[class^="sel"] {
-    text-align: center;
-    line-height: 3em;
+  text-align: center;
+  line-height: 3em;
 
-    width: 33.3%;
-    height: 100%;
-    
-    font-size: 1.4em;
-    border-right: .07em solid #E1E5E7;
+  width: 33.3%;
+  height: 100%;
+  
+  font-size: 1.4em;
+  border-right: 0.07em solid #e1e5e7;
+  cursor: pointer;
 }
 li[class$="right"] {
   border: none;
 }
 li[class^="sel"]:nth-child(2) {
   width: 33.4%;
-} /* 下拉列表未完成 */
-/*
-li[class^="sel"] .arrow {
-  margin-right: .6em;
-  
+} /* 定义导航栏的样式 */
+
+li[class^="sel"]:before {
+  content: "";
+  float: right;
+  margin-top: 1.125rem;
+  margin-right: 0.375rem;
+  z-index: 1000;
+
   width: 0;
   height: 0;
 
-  border-width: .4em;
+  border-width: 0.25rem;
   border-style: solid;
-  border-color:#AFBAC0 transparent transparent transparent;
-} */
-li[class^="sel"] li {
+  border-color: #e1e5e7 transparent transparent transparent;
+} /* 定义导航栏的小三角的样式 */
+li[class^="sel"] ul {
   display: none;
-}
+  padding: 0;
 
+  box-shadow: 0 0.2em 0.6em #e1e5e7;
+} /* 定义下拉列表的整体样式 */
+li[class^="sel"] li {
+  background-color: #fff;
+  border-bottom: 0.07em solid #e1e5e7;
+} /* 定义下拉列表选项的样式 */
+
+li[class^="sel"] li:active,
+li[class^="sel"]:active {
+  background-color: #e6e6e6;
+} /* 定义选项的点击状态 */
+li[class^="sel"]:hover > ul {
+  display: block;
+} /* 定义导航栏点击出现选项列表的触发动作 */
 
 main {
   margin-top: 8.4em;
@@ -233,7 +252,7 @@ main {
   display: flex;
 
   width: 200%;
-  background-color: #FFF;
+  background-color: #fff;
 } /* 定义主体内容的位置和尺寸 */
 .find_left,
 .find_right {
@@ -252,7 +271,7 @@ main section[class^="list"] {
   width: 100%;
   height: 9.1em;
 
-  border-bottom: .1em solid #E1E5E7;
+  border-bottom: 0.1em solid #e1e5e7;
 } /* 定义每个列表行的高度以及各小行的分布等属性 */
 main section[class^="list"]:active {
   background-color: #e6e6e6;
@@ -261,13 +280,13 @@ main section[class^="list"]:active {
 .top,
 .middle,
 .bottom {
-   display: flex;
-   align-items: center;
+  display: flex;
+  align-items: center;
 } /* 定义行里面的各小行的居中对齐 */
 
 .top span,
 .bottom span {
-  margin-left: .75em;
+  margin-left: 0.75em;
 
   font-size: 1.2em;
   color: #999999;
@@ -296,18 +315,18 @@ main .icon {
 }
 .middle span:nth-child(2) {
   margin-left: auto;
-  margin-right: .75em;
+  margin-right: 0.75em;
 
   font-size: 1.6em;
   font-family: "HiraginoSansGBW3", sans-serif;
-  color: #E63B0E;
+  color: #e63b0e;
 } /* 定义中间小行的分布和字体 */
 .arrow {
   width: 1.2em;
   height: 1.2em;
-  
-  border-top: .15em solid #5FC0CD;
-  border-right: .15em solid #5FC0CD;
+
+  border-top: 0.15em solid #5fc0cd;
+  border-right: 0.15em solid #5fc0cd;
 
   transform: rotate(45deg);
 } /* 定义箭头符号样式 */
@@ -316,7 +335,7 @@ main .icon {
 .bottom span {
   text-overflow: ellipsis;
   overflow: hidden;
-  white-space: nowrap; 
+  white-space: nowrap;
 } /* 定义隐藏文本的省略号样式 */
 
 main {
@@ -339,8 +358,8 @@ footer {
   width: 100%;
   height: 5.1em;
 
-  background-color: #F8FAFB;
-  border-top: .1em solid #DBE5E7;
+  background-color: #f8fafb;
+  border-top: 0.1em solid #dbe5e7;
 } /* 定义标签栏 */
 .home,
 .user {
@@ -350,7 +369,7 @@ footer {
 } /* 定义标签栏各标签的居中对齐 */
 
 footer .icon {
-  margin-top: .4em;
+  margin-top: 0.4em;
 
   width: 2.4em;
   height: 2.4em;
@@ -362,9 +381,9 @@ footer .icon {
 .user .icon {
   background: url(../home/img/user@2x.png) no-repeat center;
   background-size: 2.1em 2.1em;
-} 
+}
 .rudder {
-  margin: .1em 0;
+  margin: 0.1em 0;
 
   width: 4.7em;
   height: 4.7em;
@@ -375,12 +394,12 @@ footer .icon {
 
 .home span,
 .user span {
-  margin: .6em 0;
+  margin: 0.6em 0;
 
   font-size: 1em;
-  line-height: .8em;
+  line-height: 0.8em;
   color: #999999;
 }
 .home span {
-  color: #5FC0CD;
+  color: #5fc0cd;
 } /* 定义各标签的字体样式 */
