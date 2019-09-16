@@ -52,9 +52,7 @@
     url("../home/fonts/HiraginoSansGBW3/HiraginoSansGBW3.svg") format("svg");
 } /* 引用设计字体 */
 
-html,
-body {
-  height: 100%;
+html {
   overflow-x: hidden;
 }
 body {
@@ -130,7 +128,7 @@ label {
   width: 50%;
 
   font-size: 1.7em;
-} /* 声明变为内联块状元素后，再声明宽高，即可实现居中 */
+} /* 声明变为层模型，在滑块之上，并用flex布局实现居中 */
 .text_left {
   color: #fff;
 }
@@ -190,7 +188,7 @@ li {
   outline: none;
   list-style: none;
   color: #999;
-} /* 去除下拉列表的默认样式，以及ios的默认样式 */
+} /* 去除下拉列表的默认样式 */
 
 nav > ul {
   display: flex;
