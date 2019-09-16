@@ -325,16 +325,16 @@
     <script src="../home/src/iosSelect.js" async defer></script>
 
     <script type="text/javascript">
-      var addressDom = document.querySelector("#address"); // 绑定一个触发元素
-      var addressIdDom = document.querySelector("#addressId"); // 绑定一个存储结果的元素
+      var addressDom = document.querySelector("#address"); // 绑定一个点击触发元素
+      var addressIdDom = document.querySelector("#addressId"); // 绑定一个存储结果的输入框元素
       addressDom.addEventListener("click", function() {
-        // 添加监听事件
-        var addressId = addressDom.dataset["id"]; // 获取元素的data-id属性值
-        var addressName = addressDom.dataset["value"]; // 获取元素的data-value属性值
+        // 添加监听的点击事件
+        var addressId = addressDom.dataset["id"]; // 获取index.js的数组的id属性值
+        var addressName = addressDom.dataset["value"]; // 获取index.js的数组的value属性值
 
         var addressSelect = new IosSelect(
           1, // 第一个参数为级联层级，演示为1
-          [data], // index.js里的演示数据
+          [address_data], // index.js里的对应数组名
           {
             container: ".container", // 容器class
             title: "", // 标题
@@ -342,11 +342,77 @@
             itemShowCount: 3, // 每一列显示元素个数，超出将隐藏
             oneLevelId: addressId, // 第一级默认值
             callback: function(selectOneObj) {
-              // 用户确认选择后的回调函数
+              // 用户确认选择后的回调函数,返回选择值
               addressIdDom.value = selectOneObj.id;
               addressDom.innerHTML = selectOneObj.value;
               addressDom.dataset["id"] = selectOneObj.id;
               addressDom.dataset["value"] = selectOneObj.value;
+            },
+            fallback: function() {
+              console.log(1);
+            },
+            maskCallback: function() {
+              console.log(2);
+            }
+          }
+        );
+      });
+
+      var termDom = document.querySelector("#term"); // 绑定一个点击触发元素
+      var termIdDom = document.querySelector("#termId"); // 绑定一个存储结果的输入框元素
+      termDom.addEventListener("click", function() {
+        // 添加监听的点击事件
+        var termId = termDom.dataset["id"]; // 获取index.js的数组的id属性值
+        var termName = termDom.dataset["value"]; // 获取index.js的数组的value属性值
+
+        var termSelect = new IosSelect(
+          1, // 第一个参数为级联层级，演示为1
+          [term_data], // index.js里的对应数组名
+          {
+            container: ".container", // 容器class
+            title: "", // 标题
+            itemHeight: 40, // 每个元素的高度
+            itemShowCount: 3, // 每一列显示元素个数，超出将隐藏
+            oneLevelId: termId, // 第一级默认值
+            callback: function(selectOneObj) {
+              // 用户确认选择后的回调函数，返回选择值
+              termIdDom.value = selectOneObj.id;
+              termDom.innerHTML = selectOneObj.value;
+              termDom.dataset["id"] = selectOneObj.id;
+              termDom.dataset["value"] = selectOneObj.value;
+            },
+            fallback: function() {
+              console.log(1);
+            },
+            maskCallback: function() {
+              console.log(2);
+            }
+          }
+        );
+      });
+
+      var illnessDom = document.querySelector("#illness"); // 绑定一个点击触发元素
+      var illnessIdDom = document.querySelector("#illnessId"); // 绑定一个存储结果的输入框元素
+      illnessDom.addEventListener("click", function() {
+        // 添加监听的点击事件
+        var illnessId = illnessDom.dataset["id"]; // 获取index.js的数组的id属性值
+        var illnessName = illnessDom.dataset["value"]; // 获取index.js的数组的value属性值
+
+        var illnessSelect = new IosSelect(
+          1, // 第一个参数为级联层级，演示为1
+          [illness_data], // index.js里的对应数组名
+          {
+            container: ".container", // 容器class
+            title: "", // 标题
+            itemHeight: 40, // 每个元素的高度
+            itemShowCount: 3, // 每一列显示元素个数，超出将隐藏
+            oneLevelId: illnessId, // 第一级默认值
+            callback: function(selectOneObj) {
+              // 用户确认选择后的回调函数，返回选择值
+              illnessIdDom.value = selectOneObj.id;
+              illnessDom.innerHTML = selectOneObj.value;
+              illnessDom.dataset["id"] = selectOneObj.id;
+              illnessDom.dataset["value"] = selectOneObj.value;
             },
             fallback: function() {
               console.log(1);
