@@ -59,6 +59,8 @@ body {
   margin: 0;
   padding: 0;
 
+  width: 100%;
+  
   font-size: 0.625rem;
   font-family: "STHeitiSC-Light", sans-serif;
 
@@ -280,7 +282,6 @@ main {
   margin-top: 8.4em;
   margin-bottom: 8em;
   display: flex;
-  overflow-x: hidden;
 
   width: 200%;
   background-color: #fff;
